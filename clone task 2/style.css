@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: aquamarine;
+  padding: 15px 15px;
+}
+
+#logo {
+  font-weight: 800;
+  cursor: pointer;
+}
+
+#search {
+  width: 250px;
+  height: 35px;
+  padding-left: 10px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: auto;
+}
+
+nav ul li {
+  margin: 0 8px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
