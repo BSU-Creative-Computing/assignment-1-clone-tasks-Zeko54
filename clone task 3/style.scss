@@ -1,0 +1,150 @@
+$all-colors: #4e89ae #43658b #ed6663 #ffa372 #8ccff7 #e2eff1;
+
+@mixin center-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin line($color) {
+  width: 100%;
+  height: 5vh;
+  background-color: $color;
+  &:hover {
+    background-color: #444;
+  }
+}
+
+@mixin circle($color, $size) {
+  border-radius: 50%;
+  background-color: $color;
+  width: $size;
+  height: $size;
+  margin: 4px;
+  &:hover {
+    background-color: #444;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: nth($all-colors, 6);
+}
+
+header {
+  background-color: nth($all-colors, 5);
+}
+
+footer {
+  @extend header;
+  height: 50px;
+}
+
+header {
+  .top-container {
+    @include center-element();
+    height: 43vh;
+  }
+
+  .top-container-box {
+    @include center-element();
+    height: 43vh;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.bottom-container {
+  @include center-element();
+  height: 52vh;
+  flex-direction: column;
+
+  .bottom-container-lines {
+    width: 100%;
+    margin-top: 5px;
+    .line-one {
+      @include line(nth($all-colors, 1));
+    }
+    .line-two {
+      @include line(nth($all-colors, 2));
+    }
+    .line-three {
+      @include line(nth($all-colors, 3));
+    }
+    .line-four {
+      @include line(nth($all-colors, 4));
+    }
+  }
+
+  .bottom-container-circles {
+    @include center-element();
+    margin-top: 40px;
+
+    .circle-one {
+      @include circle(nth($all-colors, 1), 60px);
+    }
+    .circle-two {
+      @include circle(nth($all-colors, 2), 70px);
+    }
+    .circle-three {
+      @include circle(nth($all-colors, 3), 80px);
+    }
+    .circle-four {
+      @include circle(nth($all-colors, 4), 90px);
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 800px) {
+  header .top-container {
+    height: 32vh;
+  }
+
+  header .top-container .top-container-box {
+    height: 32vh;
+  }
+
+  img {
+    content: url("https://via.placeholder.com/300");
+  }
+
+  .bottom-container {
+    height: 89vh;
+  }
+
+  .bottom-container .bottom-container-circles {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  header .top-container {
+    height: 25vh;
+  }
+
+  header .top-container .top-container-box {
+    height: 25vh;
+  }
+
+  img {
+    content: url("https://via.placeholder.com/200");
+  }
+
+  .bottom-container {
+    height: 89vh;
+  }
+
+  .bottom-container .bottom-container-circles {
+    flex-direction: column;
+  }
+}
